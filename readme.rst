@@ -10,6 +10,7 @@ For example, between games, collision detection and following sprite reaction is
 In a ECS architecture, we want system to manage entities logic.
 e.g. Sword should damage on collision, ghosts skip the collision, heart regenerate, items go into inventory, etc ...
 
+
 THOUGHTS
 --------
 The less intrusive way, the one which could keep our collision system "pure" and super flexible is triggering event.
@@ -32,7 +33,7 @@ PROCEDURE
 ```coffee --compile --output build src```
 
 2. then from path/to/project/build:
-```time node <eventManager_to_bench.js>```
+```node <eventManager_to_bench.js>```
 
 I know it's a fast benching technique, but was enough for that precise case.
 
@@ -45,11 +46,11 @@ Results
 +----------------+---------------+-----------------+
 | **Target**     |    **RAM**    |  **Duration**   |
 +----------------+---------------+-----------------+
-| global.coffee  |  ~ 3.68 mo    |   46366 ms      |
+| global.coffee  |  ~ 422 kb     |   11941 ms      |
 +----------------+---------------+-----------------+
 | local-1.coffee |  ~ 2.87 mo    |   13367 ms      |
 +----------------+---------------+-----------------+
 | local-2.cofee  |  ~ 3.02 mo    |   12843 ms      |
 +----------------+---------------+-----------------+
-| global.coffee  |  ~ 422 kb     |   11941 ms      |
+| mix.coffee     |  ~ 3.68 mo    |   46366 ms      |
 +----------------+---------------+-----------------+
